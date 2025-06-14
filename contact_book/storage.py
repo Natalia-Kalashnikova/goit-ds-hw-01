@@ -1,8 +1,10 @@
 """This module provides functions for saving and loading the AddressBook
 using pickle serialization to persist data between sessions.
 """
+
 import pickle
-from models.addressbook import AddressBook
+from contact_book.models.addressbook import AddressBook
+
 
 def save_data(book, filename="addressbook.pkl"):
     """
