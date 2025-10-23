@@ -118,3 +118,20 @@ Run the container
 View logs
 
 `docker logs <container_id>`
+
+---
+
+## 🧩 Dockerfile Explained
+
+| **Command** | **Description** |
+|--------------|----------------|
+| `FROM python:3.13-slim` | Uses the lightweight official Python 3.13 image as the base for the container. |
+| `ENV APP_HOME=/goit-ds-hw-01` | Sets an environment variable for the app’s working directory inside the container. |
+| `WORKDIR $APP_HOME` | Defines the working directory where all commands will run. |
+| `COPY pyproject.toml $APP_HOME/pyproject.toml` | Copies the project’s dependency configuration file into the container. |
+| `RUN pip install poetry` | Installs Poetry — the dependency management tool. |
+| `RUN poetry config virtualenvs.create false` | Disables creation of virtual environments inside Docker (dependencies are installed globally). |
+| `COPY . .` | Copies all remaining project files into the container. |
+| `EXPOSE 3000` | Informs Docker that the app will use port 3000. |
+| `CMD ["python", "-m", "contact_book.main"]` | Specifies the default command to run when the container starts — launching the Contact Book bot. |
+
